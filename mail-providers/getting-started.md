@@ -28,8 +28,9 @@ Add the following code to the file, replacing `Yourmodulename` with the name of 
 
 ```
 <?php
-namespace Mail;
+namespace WHMCS\Module\Mail;
 
+use WHMCS\Module\MailSender\DescriptionTrait;
 use WHMCS\Module\Contracts\SenderModuleInterface;
 
 /**
@@ -40,6 +41,13 @@ use WHMCS\Module\Contracts\SenderModuleInterface;
 */
 class Yourmodulename implements SenderModuleInterface
 {
+  use DescriptionTrait;
+
+  public function __construct()
+  {
+      $this->setDisplayName('Your Friendly Display Name');
+  }
+
     // Functions related to your provider will reside within this class.
 }
 ```
